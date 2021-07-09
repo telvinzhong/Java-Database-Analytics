@@ -24,8 +24,4 @@ public class GreetingController {
   public Greeting postGreeting(@RequestParam(value ="name",defaultValue = "World") String name){
     return new Greeting(42,name);
   }
-
-
-
-
 }
