@@ -24,7 +24,7 @@ public class UserController {
     List<User> list = repository.findAll();
     ArrayList<String> userDates = new ArrayList<String>();
     for (int i = 0; i < 10; i++) {
-      System.out.println(list.get(i).getDate());
+//      System.out.println(list.get(i).getDate());
       userDates.add(list.get(i).getDate());
     }
     return userDates;

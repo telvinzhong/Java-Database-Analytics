@@ -18,7 +18,8 @@ public class RestServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		listAll();
+//		listAll();
+		System.out.println("Server is running on port 8080!");
 	}
 
 	public void listAll() {
