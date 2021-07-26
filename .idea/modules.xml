@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS5500-Sprint/CS5500-Sprint.iml" filepath="$PROJECT_DIR$/CS5500-Sprint/CS5500-Sprint.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Database-Analytics.iml" filepath="$PROJECT_DIR$/.idea/Java-Database-Analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS5500-Sprint/controller/controller.iml" filepath="$PROJECT_DIR$/CS5500-Sprint/controller/controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CS5500-Sprint/model/model.iml" filepath="$PROJECT_DIR$/CS5500-Sprint/model/model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring/rest-service.iml" filepath="$PROJECT_DIR$/Spring/rest-service.iml" />
+    </modules>
+  </component>
+</project>
