@@ -1,6 +1,5 @@
 package com.example.restservice;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +25,7 @@ public class UserController {
   }
 
   @GetMapping("/index")
-  public ModelAndView showCities() {
+  public ModelAndView showUsers() {
 
     List<User> users = repository.findAll();
     List<User> list = new ArrayList<>();
@@ -36,7 +35,33 @@ public class UserController {
     Map<String, Object> params = new HashMap<>();
     params.put("user", list);
 
-    return new ModelAndView("activity", params);
+    return new ModelAndView("user", params);
+  }
+
+  @GetMapping("/duration")
+  public ModelAndView showDuration() {
+
+    List<User> users = repository.findAll();
+    List<String> list = new ArrayList<>();
+    for (int i = 0; i < 100; i++) {
+      User user = users.get(i);
+      List<String> str = user.getSummary();
+      int total = 0;
+      for (String ss : str) {
+        int start = ss.indexOf("duration");
+        int j = start;
+        while (j < ss.length() && ss.charAt(j) != ',') {
+          j++;
+        }
+        int time = Integer.valueOf(ss.substring(start + 11, j));
+        total += time;
+      }
+
+      list.add("Date: " + user.getDate() + " --------> " + "Total activity time: " + String.valueOf(total));
+    }
+    Map<String, Object> params = new HashMap<>();
+    params.put("user", list);
+    return new ModelAndView("duration", params);
   }
 
   @PutMapping("/update/{id}")
@@ -45,7 +70,7 @@ public class UserController {
     return repository.findById(id)
             .map(oldUser -> {
               oldUser.setCaloriesIdle(user.getCaloriesIdle());
-              oldUser.setSummary(user.getSummary());
+              oldUser.setDate(user.getDate());
               return repository.save(user);
             })
             .orElseGet(() -> {
@@ -55,7 +80,7 @@ public class UserController {
   }
 
   @DeleteMapping("/delete/{id}")
-  void deleteEmployee(@PathVariable String id) {
+  void deleteUser(@PathVariable String id) {
     repository.deleteById(id);
   }
 }
