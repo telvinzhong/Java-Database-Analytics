@@ -24,6 +24,26 @@ public class UserController {
     return list;
   }
 
+  @PutMapping("/update/{id}")
+  User updateUser(@RequestBody User user, @PathVariable String id) {
+
+    return repository.findById(id)
+            .map(oldUser -> {
+              oldUser.setCaloriesIdle(user.getCaloriesIdle());
+              oldUser.setDate(user.getDate());
+              return repository.save(user);
+            })
+            .orElseGet(() -> {
+              user.setId(id);
+              return repository.save(user);
+            });
+  }
+
+  @DeleteMapping("/delete/{id}")
+  void deleteUser(@PathVariable String id) {
+    repository.deleteById(id);
+  }
+
   @GetMapping("/index")
   public ModelAndView showUsers() {
 
@@ -88,25 +108,5 @@ public class UserController {
     Map<String, Object> params = new HashMap<>();
     params.put("user", list);
     return new ModelAndView("activity", params);
-  }
-
-  @PutMapping("/update/{id}")
-  User updateUser(@RequestBody User user, @PathVariable String id) {
-
-    return repository.findById(id)
-            .map(oldUser -> {
-              oldUser.setCaloriesIdle(user.getCaloriesIdle());
-              oldUser.setDate(user.getDate());
-              return repository.save(user);
-            })
-            .orElseGet(() -> {
-              user.setId(id);
-              return repository.save(user);
-            });
-  }
-
-  @DeleteMapping("/delete/{id}")
-  void deleteUser(@PathVariable String id) {
-    repository.deleteById(id);
   }
 }
