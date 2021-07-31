@@ -1,9 +1,10 @@
 package com.example.restservice;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 public class UserController {
@@ -18,30 +19,43 @@ public class UserController {
     return repository.save(user);
   }
 
-  @GetMapping("/summary")
-  public List<String> getSummary() {
+  @GetMapping("/user")
+  public List<User> getSummary() {
     List<User> list = repository.findAll();
-    List<String> summaryList = new ArrayList<String>();
-    return summaryList;
+    return list;
   }
 
-  @PutMapping("/user/{date}")
-  User updateUser(@RequestBody User user, @PathVariable String date) {
+  @GetMapping("/index")
+  public ModelAndView showCities() {
 
-    return repository.findById(date)
-            .map(employee -> {
-              employee.setCaloriesIdle(user.getCaloriesIdle());
-              employee.setSummary(user.getSummary());
+    List<User> users = repository.findAll();
+    List<User> list = new ArrayList<>();
+    for (int i = 0; i < 20; i++) {
+      list.add(users.get(i));
+    }
+    Map<String, Object> params = new HashMap<>();
+    params.put("user", list);
+
+    return new ModelAndView("activity", params);
+  }
+
+  @PutMapping("/update/{id}")
+  User updateUser(@RequestBody User user, @PathVariable String id) {
+
+    return repository.findById(id)
+            .map(oldUser -> {
+              oldUser.setCaloriesIdle(user.getCaloriesIdle());
+              oldUser.setSummary(user.getSummary());
               return repository.save(user);
             })
             .orElseGet(() -> {
-              user.setId(date);
+              user.setId(id);
               return repository.save(user);
             });
   }
 
-  @DeleteMapping("/user/{date}")
-  void deleteEmployee(@PathVariable String date) {
-    repository.deleteById(date);
+  @DeleteMapping("/delete/{id}")
+  void deleteEmployee(@PathVariable String id) {
+    repository.deleteById(id);
   }
 }

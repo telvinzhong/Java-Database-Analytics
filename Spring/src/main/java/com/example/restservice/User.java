@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
+import java.util.Arrays;
+import java.util.List;
 
 @Data
 @Document(collection = "storyline")
@@ -13,12 +15,12 @@ public class User {
     @Id
     private String id;
     private String date;
-    private String[] summary;
-    private String[] segments;
+    private List<String> summary;
+    private List<String> segments;
     private String caloriesIdle;
     private String lastUpdate;
 
-    public User(String id, String date, String[] summary, String[] segments, String caloriesIdle, String lastUpdate) {
+    public User(String id, String date, List<String> summary, List<String> segments, String caloriesIdle, String lastUpdate) {
         this.id = id;
         this.date = date;
         this.summary = summary;
@@ -35,11 +37,11 @@ public class User {
         return date;
     }
 
-    public String[] getSummary() {
+    public List<String> getSummary() {
         return summary;
     }
 
-    public String[] getSegments() {
+    public List<String> getSegments() {
         return segments;
     }
 
@@ -59,11 +61,11 @@ public class User {
         this.date = date;
     }
 
-    public void setSummary(String[] summary) {
+    public void setSummary(List<String> summary) {
         this.summary = summary;
     }
 
-    public void setSegments(String[] segments) {
+    public void setSegments(List<String> segments) {
         this.segments = segments;
     }
 

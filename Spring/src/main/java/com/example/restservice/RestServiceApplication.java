@@ -27,6 +27,7 @@ public class RestServiceApplication implements CommandLineRunner {
 		List<User> list = repository.findAll();
 		for (int i = 0; i < 10; i++) {
 			User user = list.get(i);
+			System.out.println(user);
 		}
 	}
 }
