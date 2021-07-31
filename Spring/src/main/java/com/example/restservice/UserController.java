@@ -13,6 +13,12 @@ public class UserController {
     this.repository = repository;
   }
 
+  @GetMapping("/")
+  public String getHome() {
+    String home = new String("Project Group One: Check https://github.com/telvinzhong/Java-Database-Analytics for documentation");
+    return home;
+  }
+
   @PostMapping("/create")
   User createUser(@RequestBody User user) {
     return repository.save(user);
