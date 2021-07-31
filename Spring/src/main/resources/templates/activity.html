@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div th:switch="${user}">
+  <h2 th:case="null">No users yet!</h2>
+  <div th:case="*">
+    <h2>Activities</h2>
+    <table>
+      <tbody>
+      <tr th:each="res : ${user}">
+        <td th:text="${res}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
