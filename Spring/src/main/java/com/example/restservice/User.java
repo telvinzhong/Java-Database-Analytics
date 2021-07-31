@@ -27,4 +27,52 @@ public class User {
         this.caloriesIdle = caloriesIdle;
         this.lastUpdate = lastUpdate;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public String[] getSummary() {
+        return summary;
+    }
+
+    public String[] getSegments() {
+        return segments;
+    }
+
+    public String getCaloriesIdle() {
+        return caloriesIdle;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setSummary(String[] summary) {
+        this.summary = summary;
+    }
+
+    public void setSegments(String[] segments) {
+        this.segments = segments;
+    }
+
+    public void setCaloriesIdle(String caloriesIdle) {
+        this.caloriesIdle = caloriesIdle;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 }
