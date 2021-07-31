@@ -34,7 +34,6 @@ public class RestServiceApplication implements CommandLineRunner {
 					j++;
 				}
 				System.out.println(s.substring(index + 11, j));
-				System.out.println(s);
 				System.out.println(s.indexOf("duration"));
 			}
 		}
