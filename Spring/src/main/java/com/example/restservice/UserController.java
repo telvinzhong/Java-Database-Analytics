@@ -64,6 +64,32 @@ public class UserController {
     return new ModelAndView("duration", params);
   }
 
+  @GetMapping("/activity")
+  public ModelAndView showActivity() {
+
+    List<User> users = repository.findAll();
+    List<String> list = new ArrayList<>();
+    for (int i = 0; i < 100; i++) {
+      User user = users.get(i);
+      List<String> str = user.getSummary();
+      List<String> total = new ArrayList<>();
+      for (String ss : str) {
+        int start = ss.indexOf("activity");
+        int j = start + 12;
+        while (j < ss.length() && ss.charAt(j) != '"') {
+          j++;
+        }
+        String act = ss.substring(start + 12, j);
+        total.add(act);
+      }
+
+      list.add("Date: " + user.getDate() + " --------> " + "Activities are: " + total);
+    }
+    Map<String, Object> params = new HashMap<>();
+    params.put("user", list);
+    return new ModelAndView("activity", params);
+  }
+
   @PutMapping("/update/{id}")
   User updateUser(@RequestBody User user, @PathVariable String id) {
 
