@@ -33,14 +33,4 @@ public class UserController {
     }
     return userSegments;
   }
-
-  @GetMapping("/segments")
-  public ArrayList<String> getLastUpdate() {
-    List<User> list = repository.findAll();
-    ArrayList<String> userLastUpdate = new ArrayList<String>();
-    for (int i = 0; i < 10; i++) {
-      userLastUpdate.add(list.get(i).getLastUpdate());
-    }
-    return userLastUpdate;
-  }
 }
