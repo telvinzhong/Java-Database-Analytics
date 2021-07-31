@@ -14,23 +14,10 @@ public class UserController {
   @Autowired
   UserRepository repository;
 
-  @GetMapping("/dates")
-  public ArrayList<String> getDates() {
+  @GetMapping("/summary")
+  public List<String> getSummary() {
     List<User> list = repository.findAll();
-    ArrayList<String> userDates = new ArrayList<String>();
-    for (int i = 0; i < 10; i++) {
-      userDates.add(list.get(i).getDate());
-    }
-    return userDates;
-  }
-
-  @GetMapping("/segments")
-  public ArrayList<String> getSegments() {
-    List<User> list = repository.findAll();
-    ArrayList<String> userSegments = new ArrayList<String>();
-    for (int i = 0; i < 10; i++) {
-      userSegments.add(list.get(i).getSegments().toString());
-    }
-    return userSegments;
+    List<String> summaryList = new ArrayList<String>();
+    return summaryList;
   }
 }
