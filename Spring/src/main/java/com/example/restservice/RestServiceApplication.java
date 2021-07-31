@@ -18,24 +18,6 @@ public class RestServiceApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		listAll();
 		System.out.println("Server is running on port 8080!");
-	}
-
-	public void listAll() {
-		System.out.println("Listing 10 sample data");
-		List<User> list = repository.findAll();
-		for (int i = 0; i < 1; i++) {
-			User user = list.get(i);
-			for (String s : user.getSummary()) {
-				int index = s.indexOf("duration");
-				int j = index;
-				while (s.charAt(j) != ',') {
-					j++;
-				}
-				System.out.println(s.substring(index + 11, j));
-				System.out.println(s.indexOf("duration"));
-			}
-		}
 	}
 }
