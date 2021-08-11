@@ -68,7 +68,6 @@ public class UserController {
 
   @GetMapping("/duration")
   public ModelAndView showDuration() {
-
     List<User> users = repository.findAll();
     List<String> list = new ArrayList<>();
     for (int i = 0; i < 100; i++) {
@@ -85,7 +84,7 @@ public class UserController {
         total += time;
       }
 
-      list.add("Date: " + user.getDate() + " --------> " + "Total activity time: " + String.valueOf(total));
+      list.add("Date: " + user.getDate() + " --------> " + "Total activity time is: " + String.valueOf(total));
     }
     Map<String, Object> params = new HashMap<>();
     params.put("user", list);
