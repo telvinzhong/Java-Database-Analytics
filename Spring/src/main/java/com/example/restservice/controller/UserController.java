@@ -34,7 +34,6 @@ public class UserController {
 
   @PutMapping("/update/{id}")
   User updateUser(@RequestBody User user, @PathVariable String id) {
-
     return repository.findById(id)
             .map(oldUser -> {
               oldUser.setCaloriesIdle(user.getCaloriesIdle());
@@ -54,7 +53,6 @@ public class UserController {
 
   @GetMapping("/index")
   public ModelAndView showUsers() {
-
     List<User> users = repository.findAll();
     List<User> list = new ArrayList<>();
     for (int i = 0; i < 20; i++) {
@@ -93,7 +91,6 @@ public class UserController {
 
   @GetMapping("/activity")
   public ModelAndView showActivity() {
-
     List<User> users = repository.findAll();
     List<String> list = new ArrayList<>();
     for (int i = 0; i < 100; i++) {
@@ -109,7 +106,6 @@ public class UserController {
         String act = ss.substring(start + 12, j);
         total.add(act);
       }
-
       list.add("Date: " + user.getDate() + " --------> " + "Activities are: " + total);
     }
     Map<String, Object> params = new HashMap<>();
