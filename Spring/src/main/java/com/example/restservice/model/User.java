@@ -1,4 +1,4 @@
-package com.example.restservice;
+package com.example.restservice.model;
 
 import com.google.gson.annotations.SerializedName;
 import org.springframework.data.annotation.Id;

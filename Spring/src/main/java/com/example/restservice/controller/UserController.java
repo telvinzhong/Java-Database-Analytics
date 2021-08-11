@@ -1,5 +1,7 @@
-package com.example.restservice;
+package com.example.restservice.controller;
 
+import com.example.restservice.UserRepository;
+import com.example.restservice.model.User;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
