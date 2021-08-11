@@ -33,13 +33,15 @@ Deletes the user with the given user id.
 
 /index
 Parameters: None
-Returns a model of dates with the number of calories burned and acitivites performed on that date.
+Returns a model of dates with the number of calories burned and acitivites performed on that date. Integrated with Thymeleaf to perform the view layer of this MVC pattern.
 
 /duration
 Parameters: None
-Returns a model of dates and the total time spent in activity on that date.
+Returns a model of dates and the total time spent in activity on that date. Integrated with Thymeleaf to perform the view layer of this MVC pattern.
+
 
 /activity
 Parameters: None
-Returns a model of dates and a list of activities performed on that date. 
+Returns a model of dates and a list of activities performed on that date. Integrated with Thymeleaf to perform the view layer of this MVC pattern.
+
 
