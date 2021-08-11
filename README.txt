@@ -17,18 +17,18 @@ Home page
 
 /Create
 Parameters: User
-Creates a user and saves it to the remote cloud repository.
+Creates a user and saves it to the remote cloud database repository.
 
 /User
 Parameters: None
 Returns a list of all users.
 
 /Update/{id}
-Parameters:User, id
-Updates a user with the given user information and user id. 
+Parameters:id
+Updates a user with the given user id. 
 
 /Delete/{id}
-Parameters:User, id
+Parameters:id
 Deletes the user with the given user id. 
 
 /index
