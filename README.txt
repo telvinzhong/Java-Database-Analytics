@@ -5,7 +5,7 @@ To run this repo:
 
 git clone
 build the project with maven
-run Java-Database-Analytics/Spring/src/main/java/com/example/restservice
+run Java-Database-Analytics/Spring/src/main/java/com/example/restservice/RestServiceApplication.java
 open http://localhost:8080/
 Make requests with a web browser or Postman
 
